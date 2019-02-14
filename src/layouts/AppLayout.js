@@ -1,10 +1,10 @@
 import React from 'react';
 
 // Implemented Components
-import NavBar from '../components/NavBar';
+import NavBar from 'components/NavBar';
 
 // Route Components
-import Dashboard from '../routes/Dashboard';
+import Dashboard from 'routes/Dashboard';
 
 export default function AppLayout() {
   return (

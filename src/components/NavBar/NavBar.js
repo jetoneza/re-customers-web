@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Nav from '../../common/Nav';
+import Nav from 'common/Nav';
 
-import NavBarWrapper from './NavBarWrapper';
+import NavBarWrapper from 'components/NavBar/NavBarWrapper';
 
 export default function NavBar() {
   return (

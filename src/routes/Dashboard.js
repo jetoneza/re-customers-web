@@ -1,10 +1,10 @@
 import React from 'react';
 
 // Common Components
-import Container  from '../common/Container';
+import Container  from 'common/Container';
 
 // Implemented Components
-import SideBar from '../components/SideBar';
+import SideBar from 'components/SideBar';
 
 export default function Dashboard() {
   return (
