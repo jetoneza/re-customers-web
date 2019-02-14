@@ -6,7 +6,7 @@ function getClassName({
   shadow
 }) {
   // TODO: Improve this.
-  let className = 'navbar flex-md-nowrap p-0';
+  let className = 'navbar';
 
   if (dark) {
     className += ' navbar-dark bg-dark';
