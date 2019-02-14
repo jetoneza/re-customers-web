@@ -3,16 +3,16 @@ import React from 'react';
 // Common Components
 import Container  from '../common/Container';
 
+// Implemented Components
+import SideBar from '../components/SideBar';
+
 export default function Dashboard() {
   return (
     <Container
       fluid
-      style={{
-        padding: 20,
-        textAlign: 'center'
-      }}
     >
-      <div className="dashboard">
+      <div className="dashboard row">
+        <SideBar />
         <h1>Dashboard</h1>
       </div>
     </Container>
