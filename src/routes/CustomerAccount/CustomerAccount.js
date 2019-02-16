@@ -8,6 +8,7 @@ import CustomerAccountWrapper from 'routes/CustomerAccount/CustomerAccountWrappe
 
 // Sub Components
 import Details from './components/Details';
+import Transactions from './components/Transactions';
 
 function CustomerAccount({ match }) {
   const customerID = match.params.id;
@@ -16,6 +17,7 @@ function CustomerAccount({ match }) {
     <CustomerAccountWrapper>
       <Container fluid>
         <Details customerID={customerID} />
+        <Transactions />
       </Container>
     </CustomerAccountWrapper>
   );
