@@ -7,7 +7,7 @@ import NavBarWrapper from 'components/NavBar/NavBarWrapper';
 export default function NavBar() {
   return (
     <NavBarWrapper>
-      <Nav dark shadow>
+      <Nav dark>
         <a className="navbar-brand" href="#">RE Customers</a>
       </Nav>
     </NavBarWrapper>
