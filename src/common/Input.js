@@ -7,6 +7,7 @@ function Input({
   onChange,
   placeholder,
   type,
+  value,
 }) {
   return (
     <div className="form-group">
@@ -18,6 +19,7 @@ function Input({
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        value={value}
       />
     </div>
   );
