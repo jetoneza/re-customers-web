@@ -10,6 +10,7 @@ import Container from 'common/Container';
 
 // Implemented Components
 import NavBar from 'components/NavBar';
+import NotFound from 'components/NotFound';
 import SideBar from 'components/SideBar';
 
 // Styled Components
@@ -34,7 +35,7 @@ export default function AppLayout() {
                   );
                 })}
 
-                <Route path="*" render={() => <div>Not Found</div>}/>
+                <Route path="*" component={NotFound}/>
               </Switch>
             </div>
           </Container>
