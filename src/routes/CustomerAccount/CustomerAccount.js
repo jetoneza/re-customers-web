@@ -1,11 +1,26 @@
 import React from 'react';
 
+// Common Components
+import Container from 'common/Container';
+
+// Styled Components
+import CustomerAccountWrapper from 'routes/CustomerAccount/CustomerAccountWrapper';
+
+// Sub Components
+import Details from './components/Details';
+
 function CustomerAccount({ match }) {
   const customerID = match.params.id;
 
   return (
-    <h1>Customer #{customerID}</h1>
+    <CustomerAccountWrapper>
+      <Container fluid>
+        <Details customerID={customerID} />
+      </Container>
+    </CustomerAccountWrapper>
   );
 }
+
+// TODO: Add prop types.
 
 export default CustomerAccount;
