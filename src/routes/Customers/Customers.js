@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Styled Components
+import CustomersWrapper from 'routes/Customers/CustomersWrapper';
+
+// Sub Components
+import AddCustomerModal from './components/AddCustomerModal';
+
 export default function Customers() {
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const customers = [
     {
       id: 1,
@@ -25,9 +33,24 @@ export default function Customers() {
     },
   ];
 
+  const handleToggeModal = (toggle = true) => (e) => {
+    setModalOpen(toggle)
+  }
+
+  const handleAddCustomerSubmit = (data) => {
+    console.log('DATA: ', data);
+
+    // TODO: submit data
+  }
+
   return (
-    <div>
+    <CustomersWrapper>
       <h1>Customers</h1>
+      <button
+        className="btn btn-success"
+        onClick={handleToggeModal(true)}>
+        Add Customer
+      </button>
       <table className="table">
         <thead>
           <tr>
@@ -50,6 +73,11 @@ export default function Customers() {
           ))}
         </tbody>
       </table>
-    </div>
+      <AddCustomerModal
+        isOpen={isModalOpen}
+        onClose={handleToggeModal(false)}
+        onSubmit={handleAddCustomerSubmit}
+      />
+    </CustomersWrapper>
   );
 }

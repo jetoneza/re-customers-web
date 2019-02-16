@@ -56,6 +56,6 @@ Modal.defaultProps = {
   footer: null,
   onClose: () => {},
   title: 'Modal',
-}
+};
 
 export default Modal;
