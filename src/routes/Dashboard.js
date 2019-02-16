@@ -6,9 +6,11 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
       <table className="table">
         <thead>
-          <th>Name</th>
-          <th>Contact</th>
-          <th>Actions</th>
+          <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
           <tr>

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
+// Implemented Components
 import SideBarWrapper from 'components/SideBar/SideBarWrapper';
 
 export default function SideBar() {
@@ -27,12 +29,12 @@ export default function SideBar() {
               key={index}
               className="nav-item"
             >
-              <a
-                href={link.url}
+              <Link
+                to={link.url}
                 className="nav-link"
               >
                 {link.text}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
