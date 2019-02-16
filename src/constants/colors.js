@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
   // Primary shades
   blueBerry: '#4392F1',
   blueBerryLight: '#549BF2',
@@ -35,3 +35,7 @@ export const colors = {
   vermillionDarker: '#B53C30',
   vermillionDarkest: '#A1362B',
 };
+
+export default colors;
+
+

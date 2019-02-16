@@ -13,7 +13,9 @@ export default function Dashboard() {
     >
       <div className="dashboard row">
         <SideBar />
-        <h1>Dashboard</h1>
+        <div style={{marginLeft: 200}}>
+          <h1>Dashboard</h1>
+        </div>
       </div>
     </Container>
   );
