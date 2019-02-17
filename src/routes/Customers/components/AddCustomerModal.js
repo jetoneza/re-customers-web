@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Common Components
@@ -7,12 +7,13 @@ import Input from 'common/Input';
 
 function AddCustomerModal({
   isOpen,
+  isSubmitting,
   onClose,
   onSubmit
 }) {
   const defaultFormData = {
     address: '',
-    contact: '',
+    phone: '',
     firstName: '',
     lastName: '',
   };
@@ -23,13 +24,15 @@ function AddCustomerModal({
     setFormData(defaultFormData);
   }
 
+  // componentDidUpdate
+  useEffect(() => {
+    clearForm();
+  }, [isOpen]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     onSubmit(formData);
-
-    onClose();
-    clearForm();
   }
 
   const handleInputChange = (e) => {
@@ -46,7 +49,7 @@ function AddCustomerModal({
 
   const {
     address,
-    contact,
+    phone,
     firstName,
     lastName
   } = formData
@@ -65,8 +68,9 @@ function AddCustomerModal({
           </button>
           <button
             onClick={handleSubmit}
+            disabled={isSubmitting}
             className="btn btn-success">
-            Submit
+            { isSubmitting ? 'Submitting...' : 'Submit' }
           </button>
         </React.Fragment>
       )}>
@@ -84,9 +88,9 @@ function AddCustomerModal({
           placeholder="Enter Last Name"
           label="Last Name" />
         <Input
-          value={contact}
+          value={phone}
           onChange={handleInputChange}
-          name="contact"
+          name="phone"
           placeholder="Enter Contact Number"
           type="phone"
           label="Contact #" />
