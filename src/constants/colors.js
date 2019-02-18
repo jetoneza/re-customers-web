@@ -9,31 +9,37 @@ const colors = {
   blueBerryDarkest: '#316BB0',
 
   // Primary box colors
+  primary: '#4392F1',
   primaryFont: '#316BB0',
   primaryBorder: '#76aff43d',
   primaryBackground: '#5da1f34f',
 
   // Secondary box colors
+  secondary: '#262626',
   secondaryFont: '#262626',
   secondaryBorder: '#2626260d',
   secondaryBackground: '#2626261f',
 
   // Success box colors
+  success: '#3bb15d',
   successFont: '#155724',
   successBorder: '#c3e6cb',
   successBackground: '#d4edda',
 
   // Danger box colors
+  danger: '#DC493A',
   dangerFont: '#DC493A',
   dangerBorder: '#dc493a14',
   dangerBackground: '#dc493a38',
 
   // Warning box colors
+  warning: '#fbd35f',
   warningFont: '#856404',
   warningBorder: '#ffeeba',
   warningBackground: '#fff3cd',
 
   // Info box colors
+  info: '#2E80A7',
   infoFont: '#2E80A7',
   infoBorder: '#2e80a71a',
   infoBackground: '#2e80a73d',
