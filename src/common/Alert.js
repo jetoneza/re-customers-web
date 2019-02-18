@@ -12,7 +12,7 @@ const AlertWrapper = styled.div.attrs({
   border-radius: 4px;
   padding: 12px 20px;
   font-weight: 600;
-  border: 1px solid ${colors.gray};
+  border: 1px solid ${colors.border};
   color: ${colors.black};
   box-shadow: ${styles.shadow};
 
