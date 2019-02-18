@@ -1,18 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Container({
+function Container({
   children,
-  fluid,
   style
 }) {
-  // TODO: Improve this. Maybe use classnames.
-  const className = fluid ? 'container-fluid' : 'container';
   return (
     <div
-      className={className}
+      className="container"
       style={style}
     >
       { children }
     </div>
   );
 }
+
+Container.propTypes = {
+  children: PropTypes.any,
+  style: PropTypes.object,
+};
+
+Container.defaultProps = {
+  children: null,
+  style: {}
+};
+
+export default Container;
