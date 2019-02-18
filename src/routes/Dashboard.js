@@ -48,7 +48,7 @@ export default function Dashboard() {
       <h2>Alerts</h2>
       { alerts.map((alert, index) => {
         return (
-          <div key={index} style={{ margin: 20 }}>
+          <div key={index} style={{ margin: 20, width: 400 }}>
             <Alert type={alert}>
               This is a { alert } alert.
             </Alert>

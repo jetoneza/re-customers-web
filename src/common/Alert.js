@@ -40,27 +40,23 @@ const STYLES = {
 const AlertWrapper = styled.div.attrs({
   className: 'alert-wrapper',
 })`
-  padding: 12px 20px;
   border-radius: 4px;
-  border: 1px solid ${ colors.gray };
+  padding: 12px 20px;
+  font-weight: 600;
+  border: 1px solid ${colors.gray};
+  color: ${colors.black};
 
   ${({ type }) => {
-    const style = STYLES[type];
+    const color = colors[type]
 
-    if (style) {
-      const {
-        backgroundColor,
-        borderColor,
-        color
-      } = style;
-
+    if (color) {
       return (`
-        background-color: ${backgroundColor};
-        border-color: ${borderColor};
-        color: ${color};
-      `);
+        background-color: ${color};
+        border-color: transparent;
+        color: white;
+      `)
     }
-  }}
+  }};
 `;
 
 AlertWrapper.displayName = 'AlertWrapper';
