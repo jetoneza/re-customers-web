@@ -10,7 +10,7 @@ import NavBarWrapper from 'components/NavBar/NavBarWrapper';
 export default function NavBar() {
   return (
     <NavBarWrapper>
-      <Nav>
+      <Nav fixed light>
         <Link className="navbar-brand" to="/">RE Customers</Link>
       </Nav>
     </NavBarWrapper>
