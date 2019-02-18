@@ -2,40 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// Constants
 import colors from 'constants/colors';
-
-const STYLES = {
-  primary: {
-    backgroundColor: colors.primaryBackground,
-    borderColor: colors.primaryBorder,
-    color: colors.primaryFont,
-  },
-  secondary: {
-    backgroundColor: colors.secondaryBackground,
-    borderColor: colors.secondaryBorder,
-    color: colors.secondaryFont,
-  },
-  success: {
-    backgroundColor: colors.successBackground,
-    borderColor: colors.successBorder,
-    color: colors.successFont,
-  },
-  danger: {
-    backgroundColor: colors.dangerBackground,
-    borderColor: colors.dangerBorder,
-    color: colors.dangerFont,
-  },
-  warning: {
-    backgroundColor: colors.warningBackground,
-    borderColor: colors.warningBorder,
-    color: colors.warningFont,
-  },
-  info: {
-    backgroundColor: colors.infoBackground,
-    borderColor: colors.infoBorder,
-    color: colors.infoFont,
-  },
-};
+import styles from 'constants/styles';
 
 const AlertWrapper = styled.div.attrs({
   className: 'alert-wrapper',
@@ -45,6 +14,7 @@ const AlertWrapper = styled.div.attrs({
   font-weight: 600;
   border: 1px solid ${colors.gray};
   color: ${colors.black};
+  box-shadow: ${styles.shadow};
 
   ${({ type }) => {
     const color = colors[type]

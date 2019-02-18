@@ -5,6 +5,9 @@ import styled from 'styled-components';
 // Common components
 import Alert from 'common/Alert';
 
+// Constants
+import styles from 'constants/styles';
+
 import { useFirebaseQuery } from 'hooks/useFirebase';
 
 const Box = styled.div`
@@ -14,8 +17,8 @@ const Box = styled.div`
   margin: 20px;
   display: inline-block;
   border-radius: 10px;
-  box-shadow: 3px 10px 80px -8px rgba(0,0,0,0.46);
-`
+  box-shadow: ${styles.shadow};
+`;
 
 export default function Dashboard() {
   // Sample usage of `useFirebaseQuery` hook
