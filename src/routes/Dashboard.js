@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Panel from 'common/Panel';
+
 export default function Dashboard() {
   return (
-    <h1>Dashboard</h1>
+    <Panel>
+      <h1>Dashboard</h1>
+    </Panel>
   );
 }

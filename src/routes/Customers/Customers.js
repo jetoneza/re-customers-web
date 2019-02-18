@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Common Components
+import Panel from 'common/Panel';
+
 // Styled Components
 import CustomersWrapper from 'routes/Customers/CustomersWrapper';
 
@@ -45,43 +48,45 @@ export default function Customers() {
 
   return (
     <CustomersWrapper>
-      <h1>Customers</h1>
-      <button
-        className="btn btn-success"
-        onClick={handleToggeModal(true)}>
-        Add Customer
-      </button>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Contact</th>
-            <th>Address</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {customers && customers.map((customer)=> (
-            <tr key={customer.id}>
-              <td>
-                <Link to={`/customer/${customer.id}`}>
-                  {customer.firstName} {customer.lastName}
-                </Link>
-              </td>
-              <td>{customer.phone}</td>
-              <td>{customer.address}</td>
-              <td>Edit</td>
+      <Panel>
+        <h1>Customers</h1>
+        <button
+          className="btn btn-success"
+          onClick={handleToggeModal(true)}>
+          Add Customer
+        </button>
+        <table className="table" style={{ width: '100%' }}>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>Address</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      { loadingCustomers && <div>Loading Customers...</div> }
-      <AddCustomerModal
-        isSubmitting={isSubmitting}
-        isOpen={isModalOpen}
-        onClose={handleToggeModal(false)}
-        onSubmit={handleAddCustomerSubmit}
-      />
+          </thead>
+          <tbody>
+            {customers && customers.map((customer)=> (
+              <tr key={customer.id}>
+                <td>
+                  <Link to={`/customer/${customer.id}`}>
+                    {customer.firstName} {customer.lastName}
+                  </Link>
+                </td>
+                <td>{customer.phone}</td>
+                <td>{customer.address}</td>
+                <td>Edit</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        { loadingCustomers && <div>Loading Customers...</div> }
+        <AddCustomerModal
+          isSubmitting={isSubmitting}
+          isOpen={isModalOpen}
+          onClose={handleToggeModal(false)}
+          onSubmit={handleAddCustomerSubmit}
+        />
+      </Panel>
     </CustomersWrapper>
   );
 }
