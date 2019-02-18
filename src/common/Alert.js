@@ -24,7 +24,7 @@ const AlertWrapper = styled.div.attrs({
         background-color: ${color};
         border-color: transparent;
         color: white;
-      `)
+      `);
     }
   }};
 `;

@@ -18,7 +18,7 @@ const NavWrapper = styled.div.attrs(({
 }))`
   .navbar {
     background-color: ${colors.primary};
-    padding: 20px 60px;
+    padding: 20px 30px;
     box-sizing: border-box;
     height: 65px;
     z-index: 1;

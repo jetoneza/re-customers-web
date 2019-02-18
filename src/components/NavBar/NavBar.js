@@ -11,7 +11,7 @@ export default function NavBar() {
   return (
     <NavBarWrapper>
       <Nav fixed light>
-        <Link className="navbar-brand" to="/">RE Customers</Link>
+        <Link className="navbar-brand" to="/">RE Custom.</Link>
       </Nav>
     </NavBarWrapper>
   );
