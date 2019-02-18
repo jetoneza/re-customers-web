@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 const AppLayoutWrapper = styled.div`
   .content {
+    margin-top: 65px;
     margin-left: 200px;
-    padding: 0 20px;
+    padding: 65px 20px;
   }
 `;
 

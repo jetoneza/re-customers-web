@@ -23,24 +23,18 @@ export default function AppLayout() {
   return (
     <AppLayoutWrapper>
       <NavBar />
-      <Container fluid>
-        <div className="row">
-          <SideBar />
-          <Container fluid>
-            <div className="content">
-              <Switch>
-                {routes && routes.map((route) => {
-                  return (
-                    <Route {...route} />
-                  );
-                })}
+      <SideBar />
+      <div className="content">
+        <Switch>
+          {routes && routes.map((route) => {
+            return (
+              <Route {...route} />
+            );
+          })}
 
-                <Route path="*" component={NotFound}/>
-              </Switch>
-            </div>
-          </Container>
-        </div>
-      </Container>
+          <Route path="*" component={NotFound}/>
+        </Switch>
+      </div>
     </AppLayoutWrapper>
   );
 }
