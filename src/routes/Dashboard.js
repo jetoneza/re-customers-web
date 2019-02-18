@@ -2,6 +2,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+// Common components
+import Alert from 'common/Alert';
+
 import { useFirebaseQuery } from 'hooks/useFirebase';
 
 const Box = styled.div`
@@ -23,14 +26,35 @@ export default function Dashboard() {
     refetch,
   } = useFirebaseQuery({ collection: 'customers'});
 
+  const alerts = [
+    'default',
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+  ];
+
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>Dashboard Colors</h1>
       <Box color="#4392F1"/>
       <Box />
       <Box color="#262626"/>
       <Box color="#2E80A7"/>
       <Box color="#DC493A"/>
+
+      <h2>Alerts</h2>
+      { alerts.map((alert, index) => {
+        return (
+          <div key={index} style={{ margin: 20 }}>
+            <Alert type={alert}>
+              This is a { alert } alert.
+            </Alert>
+          </div>
+        );
+      }) }
 
       <h2>useFirebaseQuery</h2>
       <table className="table">
