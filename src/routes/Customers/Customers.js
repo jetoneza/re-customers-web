@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-// Services
-import FirebaseService from 'services/FirebaseService';
 
 // Styled Components
 import CustomersWrapper from 'routes/Customers/CustomersWrapper';
@@ -10,43 +7,40 @@ import CustomersWrapper from 'routes/Customers/CustomersWrapper';
 // Sub Components
 import AddCustomerModal from './components/AddCustomerModal';
 
+// Hooks
+import {
+  MUTATION_TYPES,
+  useFirebaseMutation,
+  useFirebaseQuery,
+} from 'hooks/useFirebase';
+
 export default function Customers() {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isSubmitting, setSubmitting] = useState(false);
-  const [loadingCustomers, setLoadingCustomers] = useState(false);
-  const [customers, setCustomers] = useState([]);
 
-  const fetchCustomers = async () => {
-    setLoadingCustomers(true);
+  const {
+    data: customers,
+    loading: loadingCustomers,
+    refetch: refetchCustomers,
+  } = useFirebaseQuery({ collection: 'customers'});
 
-    const data = await FirebaseService.getCollection('customers');
-
-    setCustomers(data);
-    setLoadingCustomers(false);
-  }
-
-  // componentDidMount
-  useEffect(() => {
-    fetchCustomers();
-  }, [])
+  const {
+    loading: isSubmitting,
+    addCustomer,
+  } = useFirebaseMutation({
+    collection: 'customers',
+    name: 'addCustomer',
+    type: MUTATION_TYPES.ADD,
+  });
 
   const handleToggeModal = (toggle = true) => (e) => {
     setModalOpen(toggle)
   }
 
   const handleAddCustomerSubmit = async (data) => {
-    setSubmitting(true);
+    await addCustomer(data);
 
-    try {
-      await FirebaseService.addToCollection('customers', data);
-    } catch(error) {
-      // TODO: handle error
-    }
-
-    setSubmitting(false);
     setModalOpen(false);
-
-    fetchCustomers();
+    refetchCustomers();
   }
 
   return (
@@ -67,7 +61,7 @@ export default function Customers() {
           </tr>
         </thead>
         <tbody>
-          {customers.map((customer)=> (
+          {customers && customers.map((customer)=> (
             <tr key={customer.id}>
               <td>
                 <Link to={`/customer/${customer.id}`}>
