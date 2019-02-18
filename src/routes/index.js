@@ -7,12 +7,19 @@ import renderSuspense from 'routes/renderSuspense';
 const Customers = React.lazy(() => import('routes/Customers'));
 const CustomerAccount = React.lazy(() => import('routes/CustomerAccount'));
 const Dashboard = React.lazy(() => import('routes/Dashboard'));
+const Home = React.lazy(() => import('routes/Home'));
 
 const routes = [
   {
-    key: 'dashboard',
+    key: 'home',
     exact: true,
     path: '/',
+    render: renderSuspense(Home)
+  },
+  {
+    key: 'dashboard',
+    exact: true,
+    path: '/dashboard',
     render: renderSuspense(Dashboard)
   },
 
