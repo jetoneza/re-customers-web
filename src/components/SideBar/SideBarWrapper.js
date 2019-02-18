@@ -2,27 +2,37 @@ import styled from 'styled-components';
 
 // Constants
 import colors from 'constants/colors';
+import styles from 'constants/styles';
 
 const SideBarWrapper = styled.div`
   .sidebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    margin-top: 56px;
+    margin-top: 60px;
     width: 200px;
-    padding-top: 0.5rem;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    padding: 70px 0;
+    box-sizing: border-box;
+    box-shadow: ${styles.shadow};
 
     .nav {
-      margin-top: 20px;
+      list-style: none;
 
-      .nav-link {
-        color: ${colors.grayDarkest};
+      .nav-item {
+        margin-bottom: 2rem;
 
-        &:hover {
-          background: ${colors.platinum};
+        .nav-link {
+          font-weight: 600;
+          font-size: 16px;
+          text-decoration: none;
+          padding: 12px 30px;
           color: ${colors.black};
+
+          &.active,
+          &:hover {
+            color: ${colors.primary};
+          }
         }
       }
     }

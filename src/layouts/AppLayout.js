@@ -5,9 +5,6 @@ import {
   Switch,
 } from 'react-router';
 
-// Common Components
-import Container from 'common/Container';
-
 // Implemented Components
 import NavBar from 'components/NavBar';
 import NotFound from 'components/NotFound';

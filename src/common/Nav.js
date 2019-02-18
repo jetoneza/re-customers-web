@@ -21,6 +21,7 @@ const NavWrapper = styled.div.attrs(({
     padding: 20px 60px;
     box-sizing: border-box;
     height: 65px;
+    z-index: 1;
     box-shadow: ${styles.shadow};
 
     .navbar-brand {
