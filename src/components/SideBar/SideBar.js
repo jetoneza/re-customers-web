@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // Implemented Components
 import SideBarWrapper from 'components/SideBar/SideBarWrapper';
@@ -7,7 +7,7 @@ import SideBarWrapper from 'components/SideBar/SideBarWrapper';
 export default function SideBar() {
   const links = [
     {
-      url: '/',
+      url: '/dashboard',
       text: 'Dashboard',
     },
     {
@@ -22,19 +22,19 @@ export default function SideBar() {
 
   return (
     <SideBarWrapper>
-      <nav className="sidebar bg-light">
-        <ul className="nav flex-column">
+      <nav className="sidebar">
+        <ul className="nav">
           {links.map((link, index) => (
             <li
               key={index}
               className="nav-item"
             >
-              <Link
+              <NavLink
                 to={link.url}
                 className="nav-link"
               >
                 {link.text}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
