@@ -2,9 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { useFirebaseQuery } from 'hooks/useFirebase';
+
 const Box = styled.div`
-  width: 550px;
-  height: 250px;
+  width: 430px;
+  height: 230px;
   background-color: ${(props) => `${props.color || '#FFFFFF'}`};
   margin: 20px;
   display: inline-block;
@@ -13,6 +15,14 @@ const Box = styled.div`
 `
 
 export default function Dashboard() {
+  // Sample usage of `useFirebaseQuery` hook
+  const {
+    data,
+    loading,
+    error,
+    refetch,
+  } = useFirebaseQuery({ collection: 'customers'});
+
   return (
     <div>
       <h1>Dashboard</h1>
@@ -21,6 +31,26 @@ export default function Dashboard() {
       <Box color="#262626"/>
       <Box color="#2E80A7"/>
       <Box color="#DC493A"/>
+
+      <h2>useFirebaseQuery</h2>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Data Length</th>
+            <th>isLoading?</th>
+            <th>hasError?</th>
+            <th>hasRefetch?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{ data ? data.length : 0 }</td>
+            <td>{ loading ? 'Loading' : 'No' }</td>
+            <td>{ error ? 'Yes' : 'No' }</td>
+            <td>{ refetch ? 'Yes' : 'No' }</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
