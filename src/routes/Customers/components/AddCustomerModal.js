@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // Common Components
 import Modal from 'common/Modal';
 import Input from 'common/Input';
+import Button from 'common/Button';
 
 function AddCustomerModal({
   isOpen,
@@ -61,16 +62,16 @@ function AddCustomerModal({
       onClose={onClose}
       footer={(
         <React.Fragment>
-          <button
+          <Button
             onClick={onClose}>
             Close
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={handleSubmit}
-            disabled={isSubmitting}
-            className="button-primary">
+            color="success"
+            disabled={isSubmitting}>
             { isSubmitting ? 'Submitting...' : 'Submit' }
-          </button>
+          </Button>
         </React.Fragment>
       )}>
       <form onSubmit={handleSubmit}>

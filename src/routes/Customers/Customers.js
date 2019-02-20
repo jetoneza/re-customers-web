@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Common Components
 import Panel from 'common/Panel';
+import Button from 'common/Button';
 
 // Styled Components
 import CustomersWrapper from 'routes/Customers/CustomersWrapper';
@@ -50,11 +51,11 @@ export default function Customers() {
     <CustomersWrapper>
       <Panel>
         <h1>Customers</h1>
-        <button
-          className="btn btn-success"
+        <Button
+          color="primary"
           onClick={handleToggeModal(true)}>
           Add Customer
-        </button>
+        </Button>
         <table className="table" style={{ width: '100%' }}>
           <thead>
             <tr>
