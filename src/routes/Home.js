@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
 // Common components
 import Alert from 'common/Alert';
 import Panel from 'common/Panel';
+import Modal from 'common/Modal';
 
 // Constants
 import styles from 'constants/styles';
@@ -22,6 +23,8 @@ const Circle = styled.div`
 `;
 
 export default function Home() {
+  const [isModalOpen, setModalOpen] = useState(false);
+
   // Sample usage of `useFirebaseQuery` hook
   const {
     data,
@@ -39,6 +42,10 @@ export default function Home() {
     'warning',
     'info',
   ];
+
+  const onClose = () => {
+    setModalOpen(false)
+  }
 
   return (
     <React.Fragment>
@@ -59,14 +66,46 @@ export default function Home() {
         </div>
 
         <div className="four columns">
-          <Panel>
-            <h1>Theme Colors</h1>
-            <Circle color="#4392F1"/>
-            <Circle />
-            <Circle color="#262626"/>
-            <Circle color="#2E80A7"/>
-            <Circle color="#DC493A"/>
-          </Panel>
+          <div className="row">
+            <Panel>
+              <h1>Theme Colors</h1>
+              <Circle color="#4392F1"/>
+              <Circle />
+              <Circle color="#262626"/>
+              <Circle color="#2E80A7"/>
+              <Circle color="#DC493A"/>
+            </Panel>
+          </div>
+
+          <div className="row" style={{ marginTop: 50 }}>
+            <Panel>
+              <button
+                onClick={() => setModalOpen(true)}
+                type="button"
+                className="button button-primary">
+                Open Modal
+              </button>
+              <Modal
+                title="Add Customer"
+                isOpen={isModalOpen}
+                onClose={onClose}
+                footer={(
+                  <React.Fragment>
+                    <button
+                      onClick={onClose}>
+                      Close
+                    </button>
+                    <button
+                      onClick={onClose}
+                      className="button-primary">
+                      Submit
+                    </button>
+                  </React.Fragment>
+                )}>
+                This is the modal content.
+              </Modal>
+            </Panel>
+          </div>
         </div>
 
         <div className="four columns">

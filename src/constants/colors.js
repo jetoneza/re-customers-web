@@ -46,7 +46,7 @@ const colors = {
 
   // White-Black shades
   white: '#FFFFFF',
-  border: 'bababa14',
+  border: '#bababa14',
   platinum: '#E8E8E8',
   gray: '#BABABA',
   grayLight: '#D1D1D1',

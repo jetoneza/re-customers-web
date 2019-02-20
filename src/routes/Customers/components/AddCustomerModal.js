@@ -62,14 +62,13 @@ function AddCustomerModal({
       footer={(
         <React.Fragment>
           <button
-            onClick={onClose}
-            className="btn btn-danger">
+            onClick={onClose}>
             Close
           </button>
           <button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className="btn btn-success">
+            className="button-primary">
             { isSubmitting ? 'Submitting...' : 'Submit' }
           </button>
         </React.Fragment>
