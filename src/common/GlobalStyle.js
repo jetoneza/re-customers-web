@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  body {
+    background: #f4f7fa;
+  }
+
   /********************
    * ReactModal Styles
    ********************/
