@@ -7,6 +7,7 @@ import Alert from 'common/Alert';
 import Panel from 'common/Panel';
 import Modal from 'common/Modal';
 import Button from 'common/Button';
+import Container from 'common/Container';
 
 // Constants
 import styles from 'constants/styles';
@@ -51,7 +52,26 @@ export default function Home() {
   return (
     <React.Fragment>
       <div className="row">
-        <div className="four columns">
+        <Container>
+          <Panel>
+            <h1>Theme Colors</h1>
+            <div style={{
+              display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-evenly',
+            }}>
+              <Circle color="#4392F1"/>
+              <Circle />
+              <Circle color="#262626"/>
+              <Circle color="#2E80A7"/>
+              <Circle color="#DC493A"/>
+            </div>
+          </Panel>
+        </Container>
+      </div>
+
+      <div className="row" style={{ marginTop: 50 }}>
+        <Container>
           <Panel>
             <h2>Alerts</h2>
             { alerts.map((alert, index) => {
@@ -64,81 +84,67 @@ export default function Home() {
               );
             }) }
           </Panel>
-        </div>
+        </Container>
+      </div>
 
-        <div className="four columns">
-          <div className="row">
-            <Panel>
-              <h1>Theme Colors</h1>
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-evenly',
-              }}>
-                <Circle color="#4392F1"/>
-                <Circle />
-                <Circle color="#262626"/>
-                <Circle color="#2E80A7"/>
-                <Circle color="#DC493A"/>
-              </div>
-            </Panel>
-          </div>
+      <div className="row" style={{ marginTop: 50 }}>
+        <Container>
+          <Panel>
+            <h1>Buttons</h1>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-evenly',
+            }}>
+              <Button color="primary">Primary</Button>
+              <Button color="secondary">Secondary</Button>
+              <Button color="success">Success</Button>
+              <Button color="danger">Danger</Button>
+              <Button color="warning">Warning</Button>
+              <Button color="info">Info</Button>
+              <Button disabled>Disabled</Button>
+              <Button>Default</Button>
+            </div>
+          </Panel>
+        </Container>
+      </div>
 
-          <div className="row" style={{ marginTop: 50 }}>
-            <Panel>
-              <h1>Buttons</h1>
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-evenly',
-              }}>
-                <Button color="primary">Primary</Button>
-                <Button color="secondary">Secondary</Button>
-                <Button color="success">Success</Button>
-                <Button color="danger">Danger</Button>
-                <Button color="warning">Warning</Button>
-                <Button color="info">Info</Button>
-                <Button disabled>Disabled</Button>
-                <Button>Default</Button>
-              </div>
-            </Panel>
-          </div>
+      <div className="row" style={{ marginTop: 50 }}>
+        <Container>
+          <Panel>
+            <h1>Modal</h1>
+            <Button
+              color="primary"
+              onClick={() => setModalOpen(true)}>
+              Open Modal
+            </Button>
+            <Modal
+              title="Add Customer"
+              isOpen={isModalOpen}
+              onClose={onClose}
+              footer={(
+                <React.Fragment>
+                  <Button
+                    onClick={onClose}>
+                    Close
+                  </Button>
+                  <Button
+                    color="success"
+                    onClick={onClose}>
+                    Submit
+                  </Button>
+                </React.Fragment>
+              )}>
+              <p>
+                This is the modal content.
+              </p>
+            </Modal>
+          </Panel>
+        </Container>
+      </div>
 
-          <div className="row" style={{ marginTop: 50 }}>
-            <Panel>
-              <h1>Modal</h1>
-              <Button
-                color="primary"
-                onClick={() => setModalOpen(true)}>
-                Open Modal
-              </Button>
-              <Modal
-                title="Add Customer"
-                isOpen={isModalOpen}
-                onClose={onClose}
-                footer={(
-                  <React.Fragment>
-                    <Button
-                      onClick={onClose}>
-                      Close
-                    </Button>
-                    <Button
-                      color="success"
-                      onClick={onClose}>
-                      Submit
-                    </Button>
-                  </React.Fragment>
-                )}>
-                <p>
-                  This is the modal content.
-                </p>
-              </Modal>
-            </Panel>
-          </div>
-        </div>
-
-        <div className="four columns">
-          <div className="row">
+      <div className="row" style={{ marginTop: 50 }}>
+        <Container>
           <Panel>
             <h2>useFirebaseQuery</h2>
             <table className="table">
@@ -160,15 +166,16 @@ export default function Home() {
               </tbody>
             </table>
           </Panel>
-          </div>
+        </Container>
+      </div>
 
-          <div className="row" style={{ marginTop: 50 }}>
-            <Panel>
-              <h2>Panel</h2>
-              This is a panel.
-            </Panel>
-          </div>
-        </div>
+      <div className="row" style={{ marginTop: 50 }}>
+        <Container>
+          <Panel>
+            <h2>Panel</h2>
+            This is a panel.
+          </Panel>
+        </Container>
       </div>
     </React.Fragment>
   );
