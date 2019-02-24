@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // Constants
 import colors from 'constants/colors';
 import styles from 'constants/styles';
+import { mediaMax } from 'constants/media';
 
 const SideBarWrapper = styled.div`
   .sidebar {
@@ -13,6 +14,7 @@ const SideBarWrapper = styled.div`
     margin-top: 60px;
     width: 200px;
     padding: 70px 0;
+    background: white;
     box-sizing: border-box;
     box-shadow: ${styles.shadow};
 
@@ -36,6 +38,10 @@ const SideBarWrapper = styled.div`
         }
       }
     }
+
+    ${mediaMax.mobileL`
+      display: none;
+    `}
   }
 `;
 
